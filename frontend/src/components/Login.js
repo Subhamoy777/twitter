@@ -29,10 +29,10 @@ const Login = () => {
         dispatch(getUser(res?.data?.user));
         if(res.data.success){
           navigate("/");
-          toast.success(res.data.message);
+          toast.success(res.data?.message);
         }
       } catch (error) {
-        toast.success(error.response.data.message);
+        toast.error(error.response?.data.message || "Login Failed");
         console.log(error);
       }
     } else {
@@ -49,7 +49,7 @@ const Login = () => {
           toast.success(res.data.message);
         }
       } catch (error) {
-        toast.success(error.response.data.message);
+        toast.error(error.response?.data.message);
         console.log(error);
       }
     }
